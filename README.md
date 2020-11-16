@@ -2,6 +2,8 @@
 
 > Expose build specific information in global variables for debugging.
 
+[![NPM Version](http://img.shields.io/npm/v/build-info-webpack-plugin.svg?style=flat)](https://www.npmjs.org/package/build-info-webpack-plugin)
+
 ## Install
 
 ```bash
