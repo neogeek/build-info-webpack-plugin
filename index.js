@@ -22,7 +22,18 @@ const date = Intl.DateTimeFormat('en-us', {
     hour12: true
 }).format(new Date());
 
-const commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
+function getGitCommitHash() {
+    try {
+        return execSync('git rev-parse HEAD', {
+            cwd: process.cwd(),
+            encoding: 'utf8'
+        }).trim();
+    } catch (err) {
+        return 'Not a git repo.';
+    }
+}
+
+const commitHash = getGitCommitHash();
 
 if (packageConfig.buildNumber !== undefined) {
     packageConfig.buildNumber =
